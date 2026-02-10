@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>BioCycle | Maîtrisez votre Biologie, Nutrition & Santé Féminine</title>
+    <meta name="title" content="BioCycle | Maîtrisez votre Biologie, Nutrition & Santé Féminine">
+    <meta name="description" content="Découvrez BioCycle, l'application leader pour le suivi du cycle menstruel, la fertilité et la nutrition personnalisée. Une technologie inclusive pour l'autonomie des femmes.">
+    <meta name="keywords" content="BioCycle, cycle menstruel, fertilité, santé féminine, nutrition bio, Katumba Tchibambe, suivi ovulation, bien-être femme RDC">
+    <meta name="author" content="Katumba Tchibambe Alphonse">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://votre-biocycle.com/">
+    <meta property="og:title" content="BioCycle | L'Équilibre Hormonal par la Technologie">
+    <meta property="og:description" content="Connectez votre biologie à votre nutrition. Suivi intelligent et conseils IA pour une vie sereine.">
+    <meta property="og:image" content="https://votre-biocycle.com/assets/og-image.jpg">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://votre-biocycle.com/">
+    <meta property="twitter:title" content="BioCycle | Maîtrisez votre Biologie">
+    <meta property="twitter:description" content="L'application tout-en-un qui révolutionne la santé reproductive des femmes.">
+    <meta property="twitter:image" content="https://votre-biocycle.com/assets/twitter-image.jpg">
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Transition fluide pour le Dark Mode */
+        html.scroll-smooth { scroll-behavior: smooth; }
+        
+        .bg-mesh {
+            background-image: radial-gradient(at 0% 0%, hsla(339, 100%, 95%, 1) 0, transparent 50%),
+                              radial-gradient(at 100% 100%, hsla(220, 100%, 92%, 1) 0, transparent 50%);
+            transition: all 0.5s ease;
+        }
+
+        .dark .bg-mesh {
+            background-color: #0f172a;
+            background-image: radial-gradient(at 0% 0%, hsla(339, 30%, 15%, 1) 0, transparent 50%),
+                              radial-gradient(at 100% 100%, hsla(220, 30%, 10%, 1) 0, transparent 50%);
+        }
+    </style>
+</head>
+<body class="bg-mesh text-slate-900 overflow-x-hidden" x-data="{ mobileMenu: false }">
+
+    <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2 group cursor-pointer">
+                <div class="w-10 h-10 bg-gradient-to-tr from-pink-600 to-rose-400 rounded-xl flex items-center justify-center text-white shadow-lg shadow-pink-200">
+                    <i data-lucide="activity" class="w-6 h-6"></i>
+                </div>
+                <span class="text-xl font-black tracking-tighter uppercase italic">Bio<span class="text-pink-600">Cycle</span></span>
+            </div>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#features" class="text-xs font-black uppercase tracking-widest text-slate-400 hover:text-pink-600 transition-colors">Fonctionnalités</a>
+                <a href="#pricing" class="text-xs font-black uppercase tracking-widest text-slate-400 hover:text-pink-600 transition-colors">Tarifs</a>
+                <a href="/login" class="px-6 py-3 bg-slate-900 text-white rounded-2xl text-xs font-black uppercase tracking-widest hover:shadow-xl transition-all active:scale-95">S'inscrire</a>
+            </div>
+
+            <button @click="mobileMenu = !mobileMenu" class="md:hidden text-slate-900">
+                <i data-lucide="menu" x-show="!mobileMenu"></i>
+                <i data-lucide="x" x-show="mobileMenu"></i>
+            </button>
+        </div>
+
+        <div x-show="mobileMenu" class="md:hidden bg-white border-t p-6 space-y-4 shadow-xl">
+            <a href="#features" class="block text-sm font-bold">Fonctionnalités</a>
+            <a href="#pricing" class="block text-sm font-bold">Tarifs</a>
+            <a href="/register" class="block w-full py-4 bg-pink-600 text-center text-white rounded-2xl font-black uppercase tracking-widest text-xs">Rejoindre BioCycle</a>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-20 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-pink-50 text-pink-600 rounded-full mb-8 border border-pink-100 animate-bounce">
+                <span class="text-[10px] font-black uppercase tracking-widest">Nouveau : Analyse IA Nutritionnelle</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-8 leading-[1.1]">
+                Maîtrisez votre <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-rose-500">Biologie.</span><br>
+                Optimisez votre vie.
+            </h1>
+            <p class="max-w-2xl mx-auto text-slate-500 text-lg md:text-xl font-medium mb-12">
+                BioCycle est l'application tout-en-un qui connecte votre cycle biologique à votre nutrition et votre santé mentale.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button class="w-full sm:w-auto px-10 py-5 bg-slate-900 text-white rounded-[2rem] font-black uppercase tracking-widest text-xs flex items-center justify-center gap-3 shadow-2xl hover:scale-105 transition-all">
+                    <i data-lucide="download"></i> Télécharger l'App
+                </button>
+                <button class="w-full sm:w-auto px-10 py-5 bg-white border border-slate-200 text-slate-600 rounded-[2rem] font-black uppercase tracking-widest text-xs hover:bg-slate-50 transition-all">
+                    Voir la démo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="pt-40 pb-20 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 text-emerald-600 rounded-full mb-8 border border-emerald-100">
+                <span class="text-[10px] font-black uppercase tracking-widest">Disponible gratuitement</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-8 leading-[1.1]">
+                Faciliter la gestion <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-rose-500">sexuelle des femmes.</span>
+            </h1>
+            <p class="max-w-3xl mx-auto text-slate-500 text-lg md:text-xl font-medium mb-12">
+                Une technologie intuitive conçue pour comprendre votre corps, prédire votre cycle et reprendre le contrôle total sur votre santé reproductive.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button class="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white rounded-2xl flex items-center gap-4 hover:scale-105 transition-all">
+                    <i data-lucide="play" class="fill-current"></i>
+                    <div class="text-left">
+                        <p class="text-[8px] uppercase font-bold text-slate-400 leading-none">Disponible sur</p>
+                        <p class="text-lg font-bold leading-tight">Google Play</p>
+                    </div>
+                </button>
+                <button class="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white rounded-2xl flex items-center gap-4 hover:scale-105 transition-all">
+                    <i data-lucide="apple" class="fill-current"></i>
+                    <div class="text-left">
+                        <p class="text-[8px] uppercase font-bold text-slate-400 leading-none">Télécharger dans</p>
+                        <p class="text-lg font-bold leading-tight">App Store</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="vision" class="py-24 px-6">
+        <div class="max-w-5xl mx-auto bg-white rounded-[4rem] p-12 md:p-20 shadow-xl border border-slate-50 relative overflow-hidden">
+            <div class="relative z-10 text-center">
+                <h2 class="text-[10px] font-black uppercase tracking-[0.4em] text-pink-500 mb-6">Notre Engagement</h2>
+                <p class="text-2xl md:text-4xl font-extrabold text-slate-900 leading-tight italic">
+                    "Nous croyons que chaque femme mérite d'avoir une connaissance exacte de son cycle pour vivre sa sexualité et sa vie sociale en toute sérénité, sans barrière financière."
+                </p>
+                <div class="mt-8 flex items-center justify-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center font-bold">KT</div>
+                    <div class="text-left">
+                        <p class="text-sm font-black uppercase tracking-tighter">Katumba Tchibambe</p>
+                        <p class="text-[10px] text-slate-400 font-bold uppercase">Fondateur de BioCycle</p>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute -right-20 -top-20 w-64 h-64 bg-pink-50 rounded-full blur-3xl opacity-50"></div>
+        </div>
+    </section>
+
+    <section id="features" class="py-24 px-6 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-[10px] font-black uppercase tracking-[0.5em] text-pink-500 mb-4">Ingénierie Biologique</h2>
+                <p class="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter italic">Tout ce dont vous avez besoin <br class="hidden md:block"> pour une <span class="text-pink-600 underline decoration-pink-200 underline-offset-8">maîtrise totale.</span></p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="group relative p-10 bg-white/60 backdrop-blur-xl rounded-[3.5rem] border border-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:bg-slate-900 transition-all duration-500 hover:-translate-y-4">
+                    <div class="w-16 h-16 bg-pink-100 rounded-[1.5rem] flex items-center justify-center text-pink-600 mb-8 group-hover:bg-pink-500 group-hover:text-white group-hover:rotate-[15deg] transition-all duration-500 shadow-lg shadow-pink-100 group-hover:shadow-pink-500/50">
+                        <i data-lucide="calendar-check" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-black mb-4 group-hover:text-white transition-colors italic">Prédiction de Cycle</h3>
+                    <p class="text-sm text-slate-500 group-hover:text-slate-400 leading-relaxed font-medium">Algorithmes IA de pointe pour anticiper vos prochaines règles et fenêtres de fertilité avec une précision chirurgicale.</p>
+                    <div class="mt-6 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span>
+                        <span class="text-[9px] font-black text-pink-500 uppercase tracking-widest">Inclus Gratuitement</span>
+                    </div>
+                </div>
+
+                <div class="group relative p-10 bg-white/60 backdrop-blur-xl rounded-[3.5rem] border border-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:bg-slate-900 transition-all duration-500 hover:-translate-y-4">
+                    <div class="w-16 h-16 bg-emerald-100 rounded-[1.5rem] flex items-center justify-center text-emerald-600 mb-8 group-hover:bg-emerald-500 group-hover:text-white group-hover:rotate-[15deg] transition-all duration-500 shadow-lg shadow-emerald-100 group-hover:shadow-emerald-500/50">
+                        <i data-lucide="shield-check" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-black mb-4 group-hover:text-white transition-colors italic">Gestion Sexuelle</h3>
+                    <p class="text-sm text-slate-500 group-hover:text-slate-400 leading-relaxed font-medium">Prenez des décisions éclairées grâce au suivi de contraception et à l'analyse des rapports pour une sexualité sans stress.</p>
+                    <div class="mt-6 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span class="text-[9px] font-black text-emerald-500 uppercase tracking-widest">Contrôle Total</span>
+                    </div>
+                </div>
+
+                <div class="group relative p-10 bg-white/60 backdrop-blur-xl rounded-[3.5rem] border border-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:bg-slate-900 transition-all duration-500 hover:-translate-y-4">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-[1.5rem] flex items-center justify-center text-indigo-600 mb-8 group-hover:bg-indigo-500 group-hover:text-white group-hover:rotate-[15deg] transition-all duration-500 shadow-lg shadow-indigo-100 group-hover:shadow-indigo-500/50">
+                        <i data-lucide="thermometer" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-black mb-4 group-hover:text-white transition-colors italic">Symptômes & Humeur</h3>
+                    <p class="text-sm text-slate-500 group-hover:text-slate-400 leading-relaxed font-medium">Détectez les patterns entre vos hormones et votre humeur. Apprenez à anticiper les baisses d'énergie.</p>
+                    <div class="mt-6 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                        <span class="text-[9px] font-black text-indigo-500 uppercase tracking-widest">Analyse IA</span>
+                    </div>
+                </div>
+
+                <div class="group relative p-10 bg-white/60 backdrop-blur-xl rounded-[3.5rem] border border-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:bg-slate-900 transition-all duration-500 hover:-translate-y-4">
+                    <div class="w-16 h-16 bg-rose-100 rounded-[1.5rem] flex items-center justify-center text-rose-600 mb-8 group-hover:bg-rose-500 group-hover:text-white group-hover:rotate-[15deg] transition-all duration-500 shadow-lg shadow-rose-100 group-hover:shadow-rose-500/50">
+                        <i data-lucide="sparkles" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-black mb-4 group-hover:text-white transition-colors italic">Conseils Bio</h3>
+                    <p class="text-sm text-slate-500 group-hover:text-slate-400 leading-relaxed font-medium">Des recommandations nutritionnelles et sportives calées sur votre biologie pour optimiser chaque jour.</p>
+                    <div class="mt-6 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+                        <span class="text-[9px] font-black text-rose-500 uppercase tracking-widest">Bien-être Actif</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 overflow-hidden bg-white/20">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 mb-4">Aperçu de l'interface</h2>
+                <p class="text-2xl font-extrabold italic text-slate-900">Une expérience fluide, <span class="text-pink-600">conçue pour vous.</span></p>
+            </div>
+
+            <div class="relative flex gap-4 md:gap-12 justify-center items-center">
+                
+                <div class="hidden lg:block w-72 h-[580px] bg-slate-900 rounded-[3.5rem] p-3 border-[6px] border-slate-800 shadow-2xl transform -rotate-6 translate-y-12 transition-transform hover:rotate-0 duration-700">
+                    <div class="w-full h-full bg-white rounded-[2.5rem] overflow-hidden relative group">
+                        <div class="p-6 space-y-4">
+                            <div class="flex justify-between items-center"><div class="w-8 h-2 bg-slate-100 rounded"></div><div class="w-4 h-4 bg-pink-100 rounded-full"></div></div>
+                            <div class="grid grid-cols-7 gap-2">
+                                <template x-for="i in 28">
+                                    <div :class="i > 12 && i < 18 ? 'bg-pink-500 text-white shadow-lg shadow-pink-200' : 'bg-slate-50'" class="aspect-square rounded-lg flex items-center justify-center text-[8px] font-black" x-text="i"></div>
+                                </template>
+                            </div>
+                            <div class="p-4 bg-pink-50 rounded-2xl border border-pink-100">
+                                <p class="text-[8px] font-black text-pink-600 uppercase">Phase Ovulatoire</p>
+                                <p class="text-[10px] font-bold text-slate-700 mt-1">Fertilité maximale aujourd'hui</p>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/20 to-transparent"></div>
+                    </div>
+                </div>
+
+                <div class="w-80 h-[620px] bg-slate-900 rounded-[4rem] p-3 border-[8px] border-slate-900 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] z-10 relative">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-slate-900 rounded-b-3xl z-20"></div>
+                    
+                    <div class="w-full h-full bg-gradient-to-b from-white to-pink-50 rounded-[3rem] overflow-hidden relative">
+                        <div class="p-8 pt-12 space-y-8">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-pink-600 rounded-2xl flex items-center justify-center text-white"><i data-lucide="activity"></i></div>
+                                <div><p class="text-[10px] font-black text-slate-400 uppercase">Bonjour, Julie</p><p class="text-sm font-black italic text-slate-900">Jour 14 du cycle</p></div>
+                            </div>
+                            
+                            <div class="relative w-40 h-40 mx-auto bg-white rounded-full border-8 border-pink-500 flex flex-col items-center justify-center shadow-inner">
+                                <p class="text-3xl font-black text-slate-900">5</p>
+                                <p class="text-[8px] font-black uppercase text-pink-500">Jours restants</p>
+                            </div>
+
+                            <div class="space-y-3">
+                                <div class="h-14 bg-white rounded-2xl shadow-sm border border-slate-100 flex items-center px-4 gap-4">
+                                    <i data-lucide="zap" class="text-amber-500 w-4 h-4"></i>
+                                    <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="w-3/4 h-full bg-amber-500"></div></div>
+                                </div>
+                                <div class="h-14 bg-white rounded-2xl shadow-sm border border-slate-100 flex items-center px-4 gap-4">
+                                    <i data-lucide="smile" class="text-indigo-500 w-4 h-4"></i>
+                                    <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden"><div class="w-1/2 h-full bg-indigo-500"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hidden md:block w-72 h-[580px] bg-slate-900 rounded-[3.5rem] p-3 border-[6px] border-slate-800 shadow-2xl transform rotate-6 translate-y-12 transition-transform hover:rotate-0 duration-700">
+                    <div class="w-full h-full bg-white rounded-[2.5rem] overflow-hidden relative group">
+                        <div class="p-6 space-y-6">
+                            <div class="h-32 bg-slate-100 rounded-2xl overflow-hidden relative">
+                                <div class="absolute inset-0 bg-gradient-to-tr from-emerald-500 to-teal-400 opacity-60"></div>
+                                <div class="absolute bottom-3 left-3"><p class="text-[10px] font-black text-white uppercase tracking-widest">Menu de la phase</p></div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-3"><div class="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600"><i data-lucide="leaf" class="w-5 h-5"></i></div><div class="flex-1 h-2 bg-slate-50 rounded"></div></div>
+                                <div class="flex items-center gap-3"><div class="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600"><i data-lucide="coffee" class="w-5 h-5"></i></div><div class="flex-1 h-2 bg-slate-50 rounded"></div></div>
+                                <div class="flex items-center gap-3"><div class="w-10 h-10 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600"><i data-lucide="heart" class="w-5 h-5"></i></div><div class="flex-1 h-2 bg-slate-50 rounded"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>    
+
+    <section id="features" class="py-24 px-6 bg-white/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-10 bg-white rounded-[3rem] border border-slate-100 shadow-sm group hover:border-pink-200 transition-all">
+                    <div class="w-16 h-16 bg-pink-50 rounded-2xl flex items-center justify-center text-pink-500 mb-8 group-hover:scale-110 transition-transform">
+                        <i data-lucide="utensils" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-extrabold mb-4 italic">Nutrition Ciblée</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed font-medium">Des plans alimentaires adaptés à chaque phase de votre cycle pour réduire la fatigue et les fringales.</p>
+                </div>
+
+                <div class="p-10 bg-slate-900 rounded-[3rem] shadow-2xl text-white transform md:-translate-y-8">
+                    <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-pink-400 mb-8">
+                        <i data-lucide="brain" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-extrabold mb-4 italic text-pink-400">Santé Mentale</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed font-medium">Comprenez vos variations d'humeur et apprenez des techniques de relaxation biologique spécifiques.</p>
+                </div>
+
+                <div class="p-10 bg-white rounded-[3rem] border border-slate-100 shadow-sm group hover:border-pink-200 transition-all">
+                    <div class="w-16 h-16 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-500 mb-8 group-hover:scale-110 transition-transform">
+                        <i data-lucide="bar-chart-2" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-extrabold mb-4 italic">Analyses IA</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed font-medium">Découvrez des corrélations entre vos activités et votre bien-être grâce à nos algorithmes prédictifs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-24 px-6">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+            <h2 class="text-4xl font-black mb-4">Un investissement pour votre <span class="text-pink-600 italic">Futur</span>.</h2>
+            <p class="text-slate-500 font-medium italic uppercase text-xs tracking-widest">Simple. Transparent. Puissant.</p>
+        </div>
+
+        <div class="max-w-3xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+            <div class="p-10 bg-white rounded-[3rem] border border-slate-100 shadow-sm text-center">
+                <p class="text-[10px] font-black uppercase text-slate-400 mb-4 tracking-widest">Mensuel</p>
+                <div class="text-4xl font-black mb-6">9.99$ <span class="text-sm font-medium text-slate-400">/ mois</span></div>
+                <ul class="text-sm space-y-4 mb-8 text-slate-600 font-medium">
+                    <li class="flex items-center gap-2 justify-center"><i data-lucide="check" class="w-4 h-4 text-emerald-500 font-black"></i> Calendrier intelligent</li>
+                    <li class="flex items-center gap-2 justify-center"><i data-lucide="check" class="w-4 h-4 text-emerald-500 font-black"></i> Recettes nutritionnelles</li>
+                    <li class="flex items-center gap-2 justify-center"><i data-lucide="check" class="w-4 h-4 text-emerald-500 font-black"></i> Support communautaire</li>
+                </ul>
+                <button class="w-full py-4 border-2 border-slate-900 rounded-2xl text-xs font-black uppercase tracking-widest hover:bg-slate-900 hover:text-white transition-all">Choisir ce plan</button>
+            </div>
+
+            <div class="p-10 bg-slate-900 rounded-[3.5rem] shadow-2xl text-center relative overflow-hidden border-4 border-pink-500">
+                <div class="absolute top-8 right-[-35px] bg-pink-500 text-white text-[8px] font-black px-10 py-1 rotate-45 uppercase">Best Value</div>
+                <p class="text-[10px] font-black uppercase text-pink-400 mb-4 tracking-widest">Annuel (Économisez 25%)</p>
+                <div class="text-4xl font-black mb-6 text-white">89.00$ <span class="text-sm font-medium text-slate-500">/ an</span></div>
+                <ul class="text-sm space-y-4 mb-8 text-slate-300 font-medium">
+                    <li class="flex items-center gap-2 justify-center"><i data-lucide="check" class="w-4 h-4 text-pink-500"></i> Tout le plan Mensuel</li>
+                    <li class="flex items-center gap-2 justify-center"><i data-lucide="check" class="w-4 h-4 text-pink-500"></i> Rapports Santé PDF</li>
+                    <li class="flex items-center gap-2 justify-center"><i data-lucide="check" class="w-4 h-4 text-pink-500"></i> Accès prioritaire Beta</li>
+                </ul>
+                <button class="w-full py-5 bg-gradient-to-r from-pink-600 to-rose-400 text-white rounded-2xl text-xs font-black uppercase tracking-widest shadow-lg shadow-pink-500/20 active:scale-95 transition-all">S'inscrire Maintenant</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="vision" class="py-24 px-6">
+        <div class="max-w-5xl mx-auto bg-white rounded-[4rem] p-12 md:p-20 shadow-xl border border-slate-50 relative overflow-hidden">
+            <div class="relative z-10 text-center">
+                <h2 class="text-[10px] font-black uppercase tracking-[0.4em] text-pink-500 mb-8">Notre Engagement</h2>
+                <p class="text-2xl md:text-4xl font-extrabold text-slate-900 leading-tight italic">
+                    "Nous croyons que chaque femme mérite une connaissance exacte de son cycle pour vivre sa sexualité sans barrière financière ni tabou."
+                </p>
+                <div class="mt-10 flex items-center justify-center gap-4">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-pink-600 to-rose-400 flex items-center justify-center text-white font-black">KT</div>
+                    <div class="text-left">
+                        <p class="text-sm font-black uppercase tracking-tighter">Katumba Tchibambe A.</p>
+                        <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Fondateur • Lomami, DRC</p>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute -right-20 -top-20 w-80 h-80 bg-pink-100 rounded-full blur-[100px] opacity-30"></div>
+        </div>
+    </section>
+
+    <section id="features" class="py-24 px-6 bg-white/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-8 bg-white rounded-[2.5rem] border border-slate-100 shadow-sm hover:translate-y-[-10px] transition-all">
+                    <div class="w-12 h-12 bg-pink-50 rounded-2xl flex items-center justify-center text-pink-500 mb-6"><i data-lucide="calendar-days"></i></div>
+                    <h3 class="text-lg font-black mb-3 italic">Prédictions IA</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed font-medium">Algorithmes précis pour anticiper vos règles, l'ovulation et les fenêtres de fertilité.</p>
+                </div>
+                <div class="p-8 bg-white rounded-[2.5rem] border border-slate-100 shadow-sm hover:translate-y-[-10px] transition-all">
+                    <div class="w-12 h-12 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-500 mb-6"><i data-lucide="shield-check"></i></div>
+                    <h3 class="text-lg font-black mb-3 italic">Liberté Sexuelle</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed font-medium">Un suivi rigoureux pour une sexualité responsable, sereine et totalement informée.</p>
+                </div>
+                <div class="p-8 bg-white rounded-[2.5rem] border border-slate-100 shadow-sm hover:translate-y-[-10px] transition-all">
+                    <div class="w-12 h-12 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-600 mb-6"><i data-lucide="brain"></i></div>
+                    <h3 class="text-lg font-black mb-3 italic">Santé Mentale</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed font-medium">Comprenez comment vos hormones influencent vos émotions au quotidien.</p>
+                </div>
+                <div class="p-8 bg-white rounded-[2.5rem] border border-slate-100 shadow-sm hover:translate-y-[-10px] transition-all">
+                    <div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-600 mb-6"><i data-lucide="utensils"></i></div>
+                    <h3 class="text-lg font-black mb-3 italic">Nutrition Bio</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed font-medium">Des conseils alimentaires spécifiques à chaque phase pour stabiliser votre énergie.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="py-24 px-6 bg-slate-900 rounded-[4rem] md:rounded-[6rem] my-12 mx-4 overflow-hidden" 
+            x-data="{ 
+                active: 1,
+                members: [
+                    { id: 1, name: 'Katumba Tchibambe A.', role: 'SuperAdmin & Visionnaire', origin: 'Lomami, DRC', color: 'from-pink-600 to-rose-400', initial: 'KT', bio: 'Patriote extrêmement brillant, Katumba insuffle la vision technologique et l\'éthique de BioCycle.' },
+                    { id: 2, name: 'Sarah Kapinga', role: 'Admin & Coordination', origin: 'Kasaï Oriental', color: 'from-indigo-600 to-blue-400', initial: 'SK', bio: 'Experte en gestion opérationnelle, Sarah assure la fluidité entre les services et la communauté.' },
+                    { id: 3, name: 'Marc Lomami', role: 'Chef Modérateur', origin: 'Haut-Lomami', color: 'from-amber-500 to-orange-400', initial: 'ML', bio: 'Garant de la sécurité et du respect des règles, Marc veille à la bienveillance au sein de l\'application.' }
+                ],
+                next() {
+                    this.active = this.active < this.members.length ? this.active + 1 : 1;
+                },
+                prev() {
+                    this.active = this.active > 1 ? this.active - 1 : this.members.length;
+                },
+                timer: null,
+                startTimer() {
+                    this.timer = setInterval(() => { this.next() }, 5000);
+                },
+                stopTimer() {
+                    clearInterval(this.timer);
+                }
+            }"
+            x-init="startTimer()"
+            @mouseenter="stopTimer()"
+            @mouseleave="startTimer()">
+        
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div class="text-left">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="w-8 h-[2px] bg-pink-500"></span>
+                        <p class="text-pink-500 font-black uppercase text-[10px] tracking-[0.3em]">Notre Force vive</p>
+                    </div>
+                    <h2 class="text-4xl md:text-6xl font-black text-white tracking-tighter italic leading-none">L'Équipe <span class="text-pink-500">BioCycle</span></h2>
+                </div>
+                
+                <div class="flex items-center gap-6">
+                    <div class="hidden md:flex gap-2">
+                        <template x-for="member in members" :key="member.id">
+                            <div class="h-1 rounded-full transition-all duration-500" 
+                                :class="active === member.id ? 'w-8 bg-pink-500' : 'w-2 bg-slate-700'"></div>
+                        </template>
+                    </div>
+                    <div class="flex gap-2">
+                        <button @click="prev()" class="w-12 h-12 rounded-2xl border border-white/10 flex items-center justify-center text-white hover:bg-white hover:text-slate-900 transition-all">
+                            <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                        </button>
+                        <button @click="next()" class="w-12 h-12 rounded-2xl bg-pink-600 flex items-center justify-center text-white hover:bg-pink-500 shadow-lg shadow-pink-900/20 transition-all">
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="relative min-h-[500px] md:min-h-[450px]">
+                <template x-for="member in members" :key="member.id">
+                    <div x-show="active === member.id" 
+                        x-transition:enter="transition ease-out duration-700"
+                        x-transition:enter-start="opacity-0 scale-95 translate-x-20"
+                        x-transition:enter-end="opacity-100 scale-100 translate-x-0"
+                        x-transition:leave="transition ease-in duration-300"
+                        x-transition:leave-start="opacity-100 scale-100 translate-x-0"
+                        x-transition:leave-end="opacity-0 scale-95 -translate-x-20"
+                        class="absolute inset-0 flex flex-col md:flex-row items-center gap-12">
+                        
+                        <div class="relative w-64 h-80 md:w-80 md:h-[400px] shrink-0">
+                            <div :class="`absolute inset-0 bg-gradient-to-tr ${member.color} rounded-[3rem] rotate-6 opacity-20 blur-xl`"></div>
+                            <div class="absolute inset-0 bg-slate-800 rounded-[3rem] border border-white/10 overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)]">
+                                <div :class="`w-full h-full flex items-center justify-center text-7xl font-black text-white bg-gradient-to-br ${member.color} relative`">
+                                    <span x-text="member.initial" class="relative z-10"></span>
+                                    <div class="absolute inset-0 opacity-20 mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center md:text-left space-y-6">
+                            <div class="space-y-2">
+                                <span :class="`inline-block px-4 py-1 rounded-full text-[9px] font-black uppercase tracking-[0.2em] text-white shadow-lg bg-gradient-to-r ${member.color}`" x-text="member.role"></span>
+                                <h3 class="text-4xl md:text-7xl font-black text-white tracking-tighter" x-text="member.name"></h3>
+                                <div class="flex items-center justify-center md:justify-start gap-2 text-pink-500">
+                                    <i data-lucide="map-pin" class="w-4 h-4"></i>
+                                    <p class="text-slate-400 font-black uppercase text-[10px] tracking-widest" x-text="member.origin"></p>
+                                </div>
+                            </div>
+                            <p class="text-slate-400 max-w-md text-base leading-relaxed font-medium italic" x-text="member.bio"></p>
+                            
+                            <div class="flex justify-center md:justify-start gap-4 pt-4">
+                                <button class="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-pink-500 transition-colors">
+                                    <i data-lucide="linkedin" class="w-4 h-4"></i> LinkedIn
+                                </button>
+                                <button class="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-pink-500 transition-colors">
+                                    <i data-lucide="mail" class="w-4 h-4"></i> Contact
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 mb-12 text-center">Ce que dit la communauté</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-[3rem] border border-slate-100 shadow-sm italic">
+                    <div class="flex text-pink-500 mb-4"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                    <p class="text-slate-600 text-sm leading-relaxed font-medium mb-6">"Enfin une application qui ne me demande pas de carte bancaire pour comprendre comment fonctionne mon corps !"</p>
+                    <p class="text-xs font-black uppercase tracking-tighter text-slate-900">— Julie S., Utilisatrice</p>
+                </div>
+                <div class="bg-white p-8 rounded-[3rem] border border-slate-100 shadow-sm italic">
+                    <div class="flex text-pink-500 mb-4"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                    <p class="text-slate-600 text-sm leading-relaxed font-medium mb-6">"Les prédictions d'ovulation m'ont aidé à mieux planifier ma vie sociale et sportive. Merci BioCycle."</p>
+                    <p class="text-xs font-black uppercase tracking-tighter text-slate-900">— Dorcas M., Étudiante</p>
+                </div>
+                <div class="bg-white p-8 rounded-[3rem] border border-slate-100 shadow-sm italic">
+                    <div class="flex text-pink-500 mb-4"><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i></div>
+                    <p class="text-slate-600 text-sm leading-relaxed font-medium mb-6">"La vision de Katumba est révolutionnaire pour nous ici. La gestion sexuelle n'est plus un secret."</p>
+                    <p class="text-xs font-black uppercase tracking-tighter text-slate-900">— Anny B., Sage-femme</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 px-6 bg-white text-center rounded-t-[5rem]">
+        <div class="max-w-7xl mx-auto border-t border-slate-100 pt-16">
+            <div class="flex items-center justify-center gap-2 mb-8">
+                <div class="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center text-white"><i data-lucide="activity" class="w-4 h-4"></i></div>
+                <span class="text-sm font-black tracking-tighter uppercase italic">Bio<span class="text-pink-600">Cycle</span></span>
+            </div>
+            <p class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-300 mb-8 leading-loose">
+                Fièrement originaire de Lomami • Ethnie Songye • République Démocratique du Congo
+            </p>
+            <div class="flex justify-center gap-6 text-slate-400">
+                <i data-lucide="instagram" class="w-5 h-5 cursor-pointer hover:text-pink-600 transition-colors"></i>
+                <i data-lucide="twitter" class="w-5 h-5 cursor-pointer hover:text-pink-600 transition-colors"></i>
+                <i data-lucide="linkedin" class="w-5 h-5 cursor-pointer hover:text-pink-600 transition-colors"></i>
+            </div>
+            <p class="mt-12 text-[9px] font-bold text-slate-300">© 2026 BioCycle. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+      lucide.createIcons();
+    </script>
+</body>
+</html>
