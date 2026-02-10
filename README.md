@@ -37,7 +37,7 @@ L'interface se distingue par :
 - Un **Dark Mode** persistant (via LocalStorage).
 - Un focus sur l'**UX/UI** avec des polices modernes (*Plus Jakarta Sans*).
 
-## 👨 L'Équipe
+##  L'Équipe
 
 | Membre | Rôle | Origine |
 | :--- | :--- | :--- |
@@ -47,7 +47,7 @@ L'interface se distingue par :
 
 ---
 
-## 📦 Installation Locale
+##  Installation Locale
 
 1. Clonez le dépôt :
    ```bash
